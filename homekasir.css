@@ -1,0 +1,33 @@
+@charset "utf-8";
+/*CSS Document*/
+
+#halamanutama{
+    margin: auto;
+    width: 1100px;
+    height:1000px
+}
+
+#header{
+    width: 1100px;
+    height: 200px;
+    background-image: url(gambar/hoo.png);
+}
+
+#menu{
+	width:1100px;
+	height:30px; 
+	background-color:rgb(228, 161, 73);
+	color: rgb(255, 109, 12);
+}
+
+#isi{
+	width:1100px;
+	height: 1500px;
+	background-color:rgb(202, 131, 49);
+}
+
+#footer{
+	width:1100px;
+	height:20px;
+	background-image:url(.jpeg);
+}

@@ -39,10 +39,10 @@ else{
 	exit();
 }
     $persiapan_query=mysqli_prepare($koneksi,"UPDATE produk SET namaproduk=?,foto=? ,harga?, stok=? WHERE idproduk=?");
-    mysqli_stmt_blind_param($persiapan_query,"ssdii",
+    mysqli_stmt_bind_param($persiapan_query,"ssdii",
     $produk,$gb,$harga,$stok,$id);
 
-    $eksekusi_query=myqli_stmt_execute($persiapan_query);
+    $eksekusi_query=mysqli_stmt_execute($persiapan_query);
     if($eksekusi_query-false){
     ?>
     <script language="javascript">

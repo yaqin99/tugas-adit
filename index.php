@@ -6,7 +6,7 @@
             body{
                 background-image: url(gambar/bglogin.jpeg);
                 background-size: cover;
-                background-repeat: no-repeat
+                background-repeat: no-repeat;
                 background-position: center;
                 background-attachment: fixed;
                 height: 100%;
@@ -27,7 +27,7 @@
         </style>
     </head>
     <body>
-        <h1 class="title"> APLIKASI KASIR FADHLAN</h1>
+        <h1 class="title"> APLIKASI KASIR JEFRY</h1>
         <div class="container">
         <fieldset>
             <legend>LOGIN ADMIN KASIR</legend>

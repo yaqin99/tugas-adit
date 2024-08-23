@@ -11,6 +11,7 @@ if(isset($_SESSION['LoginId']))
 ?>
     <script language="javascript">
     alert("ANDA HARUS LOGIN UNTUK MENGAKSES HALAMAN INI"); document.location="index.php";
+    </script>
     <?php
     }
 ?>

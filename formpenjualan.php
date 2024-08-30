@@ -58,7 +58,7 @@ if (isset($_SESSION['LoginId'])) {
 										<td><div align="center"><strong>HARGA</strong></div></td>
 										<td><div align="center"><strong>JUMLAH</strong></div></td>
 										<td><div align="center"><strong>SUB TOTAL</strong></div></td>
-										<td><div align="center"><strong></strong></div></td>
+										<td><div align="center"><strong>AKSI</strong></div></td>
 									</tr>
 									<?php
 									$no=1;
@@ -72,12 +72,12 @@ if (isset($_SESSION['LoginId'])) {
 									$keranjang = $_SESSION['keranjang'] ?? []; 
 /* loop semua data keranjang, $_SESSION['keranjang'] [$produk_id]
 =$jumlah */
-foreach ($keranjang as $produk_id => $jumlah):
+	foreach ($keranjang as $produk_id => $jumlah):
 // filter/saring produk berdasarkan id
-	$filter_produk =  array_filter ($array_semua_produk, 
-		function ($produknya_array) use ($produk_id){
-			return $produknya_array['ProdukId'] == $produk_id;
-		});
+		$filter_produk =  array_filter ($array_semua_produk, 
+			function ($produknya_array) use ($produk_id){
+				return $produknya_array['ProdukId'] == $produk_id;
+	});
 /* jika tidak ada produk yang ditemukan, lompati data ini
 dan lanjut data berikutnya */
 if (empty($filter_produk)) {
@@ -93,10 +93,10 @@ $total_harga += $jumlah * $produk_ditemukan ['Harga'];
 </div></td>
 <td><div align="center"><?php echo
 "$produk_ditemukan[NamaProduk]"; ?></div></td>
-<td><div align="center"><?php echo "$produk_ditemukan[Harga]"; ?>
+<td><div align="center"><?= 'Rp.'. number_format($produk_ditemukan["Harga"]); ?>
 </div></td>
 <td><div align="center"><?php echo "$jumlah"; ?></div></td>
-<td><div align="center"><?=$jumlah * $produk_ditemukan ['Harga']?>
+<td><div align="center"><?='Rp.'. number_format($jumlah * $produk_ditemukan ['Harga'])?>
 </div></td>
 <td><div align="center"><a href="deletepenjualanproduk.php?idnya=
 <?php echo $produk_ditemukan ['ProdukId']; ?>">HAPUS</a></div></td>
@@ -106,7 +106,7 @@ endforeach;
 ?>
 <tr><td colspan="4"><div align="right"><strong>TOTAL
 </strong></div></td>
-<td><div align="center"><strong><?=$total_harga?>
+<td><div align="center"><strong><?='Rp.'. number_format($total_harga);?>
 </strong></div></td>
 <td></td>
 </tr>

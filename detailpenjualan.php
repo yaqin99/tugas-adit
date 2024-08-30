@@ -67,11 +67,11 @@ if (mysqli_num_rows($ambil_hasil) != 1) :
                     </tr>
                     <tr>
                         <td>Total Harga</td>
-                        <td><?=$array_penjualan['Totalharga']?></td>
+                        <td><?= 'Rp.'.number_format($array_penjualan['Totalharga']);?></td>
                     </tr>
                     <tr>
                         <td>Pembayaran</td>
-                        <td><?=$array_penjualan['Pembayaran']?></td>
+                        <td><?='Rp.'.number_format($array_penjualan['Pembayaran']);?></td>
                     </tr>
                     <tr>
                         <td>Kembalian</td>
@@ -123,13 +123,13 @@ if (mysqli_num_rows($ambil_hasil) != 1) :
                             <div align="center"><?php echo "$detail_produk[NamaProduk]"; ?></div>
                         </td>
                         <td>
-                            <div align="center"><?php echo $detail_produk['SubTotal'] / $detail_produk['JumlahProduk']; ?></div>
+                            <div align="center"><?php echo 'Rp.'.number_format($detail_produk['SubTotal'] / $detail_produk['JumlahProduk']); ?></div>
                         </td>
                         <td>
                             <div align="center"><?php echo "$detail_produk[JumlahProduk]"; ?></div>
                         </td>
                         <td colspan="2">
-                            <div align="center"><?php echo "$detail_produk[SubTotal]"; ?></div>
+                            <div align="center"><?php echo 'Rp.'.number_format("$detail_produk[SubTotal]"); ?></div>
                         </td>
                     </tr>
 
@@ -142,7 +142,7 @@ if (mysqli_num_rows($ambil_hasil) != 1) :
                         <div align="right"><strong>TOTAL</strong></div>
                     </td>
                     <td>
-                        <div align="center"><strong><?=$array_penjualan ['Totalharga']?></strong></div>
+                        <div align="center"><strong><?= 'Rp.'.number_format($array_penjualan ['Totalharga']);?></strong></div>
                     </td>
                     </tr>
                 </table>

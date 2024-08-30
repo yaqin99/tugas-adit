@@ -70,9 +70,9 @@ if (isset($_GET['delete'])) {
                 <td><div align="center"><?php echo "$no"; $no++; ?></div></td>
 						<td><div align="center"><?php echo "$array[Tanggalpenjualan]"; ?></div></td>
 						<td><div align="center"><?php echo "$array[NamaPelanggan]"; ?></div></td>
-						<td><div align="center"><?php echo "$array[Totalharga]"; ?></div></td>
-						<td><div align="center"><?php echo "$array[Pembayaran]"; ?></div></td>
-						<td><div align="center"><?= $array['Pembayaran'] - $array['Totalharga']; ?></div></td>
+						<td><div align="center"><?php echo 'Rp.'.number_format("$array[Totalharga]"); ?></div></td>
+						<td><div align="center"><?php echo 'Rp.'.number_format("$array[Pembayaran]"); ?></div></td>
+						<td><div align="center"><?= 'Rp.'.number_format($array['Pembayaran'] - $array['Totalharga'])  ?></div></td>
                         <td><div align="center">
                         <a href="homekasir.php?pg=detailpenjualan&idnya=<?php echo $array['PenjualanId']; ?>">DETAIL</a> </div></td><td><div align="center">
                         <a href="homekasir.php?pg=riwayatpenjualan&delete=<?php echo $array['PenjualanId']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">HAPUS</a></div></td>

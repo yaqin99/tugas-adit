@@ -36,23 +36,23 @@ else
 				<table border="0" cellspacing="0" cellpadding="10">
 					<tr>
 						<td>Nama Produk</td>
-						<td><input type="text" name="produk"></td>
+						<td><input type="text" name="produk" id="nama_va" required></td>
 					</tr>
 					<tr>
 					<tr>
 						<td>Gambar</td>
-						<td><input type="file" name="foto"></td>
+						<td><input type="file" name="foto" id="foto_va" required></td>
 					</tr>
 					<tr>
 						<td>Harga</td>
-						<td><input type="text" name="harga"></td>
+						<td><input type="text" name="harga" id="harga_validasi"></td>
 					</tr>
 					<tr>
 						<td>Stok</td>
-						<td><input type="text" name="stok"></td>
+						<td><input type="text" name="stok" id="stok_validasi"></td>
 					</tr>
 					<tr>
-						<td colspan="2" align="right"><input type="submit" value="SIMPAN"></td>
+						<td colspan="2" align="right"><input type="submit" id="btnConfirm" value="SIMPAN" onclick="check()"></td>
 					</tr>
 				</table>
 			</form>
@@ -96,6 +96,39 @@ else
 					?>
 				</table>
 		</fieldset>
+	<script>
+		function check(){
+
+			let nama = document.getElementById('nama_va').value ;
+			let foto = document.getElementById('foto_va').value ;
+			let harga = document.getElementById('harga_validasi').value ;
+			let stok = document.getElementById('stok_validasi').value ;
+			
+			if (harga == '') {
+				document.getElementById("btnConfirm").setAttribute("type", "button");
+				alert('Data Harga Tidak Boleh Kosong');
+				document.getElementById('harga_validasi').value = harga ;
+				document.getElementById('stok_validasi').value = stok ;
+			
+
+			}
+			if (stok == '') {
+				document.getElementById("btnConfirm").setAttribute("type", "button");
+
+				alert('Data Stok Tidak Boleh Kosong');
+				document.getElementById('harga_validasi').value = harga ;
+				document.getElementById('stok_validasi').value = stok ;
+			}
+			if (stok != '' && harga != '' && nama != '' && foto != '') {
+				document.getElementById("btnConfirm").setAttribute("type", "submit");
+
+				
+			}
+
+			
+		}
+	</script>
 	</body>
+	
 	</div>
 </html>

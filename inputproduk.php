@@ -1,7 +1,9 @@
 <?php
 include 'koneksi.php'; 
 $produk=$_POST['produk']; 
+
 $gb=$_FILES['foto']['name'];
+$uniq = uniqid().'.'.$gb ;
 $type_gambar=$_FILES['foto']['type'];
 $lokasi_file=$_FILES['foto']['tmp_name'];
 if($type_gambar !="image/gif" AND
@@ -25,7 +27,7 @@ $persiapan_query= mysqli_prepare(
 	VALUES (?, ?, ?, ?)"
 ); 
 mysqli_stmt_bind_param($persiapan_query,"ssdi",
-	$produk,$gb,$harga,$stok);
+	$produk,$uniq,$harga,$stok);
 $eksekusi_query = mysqli_stmt_execute($persiapan_query);
 
 if($eksekusi_query == false) {
@@ -37,7 +39,7 @@ if($eksekusi_query == false) {
 	<?php
 	exit();
 }
-$simpan_ke="gambar/" .$gb;
+$simpan_ke="gambar/" .$uniq;
 move_uploaded_file($lokasi_file, $simpan_ke);
 header('location:homekasir.php?pg=forminputproduk');
 ?>

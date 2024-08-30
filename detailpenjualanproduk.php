@@ -65,11 +65,11 @@ $persiapan_query = mysqli_prepare(
 	</tr>
 	<tr>
 	<td>Total Harga</td>
-	<td><?=$array_penjualan['TotalHarga']?></td>
+	<td><?= 'Rp.'.number_format($array_penjualan['TotalHarga']); ?></td>
 	</tr>
 	<tr>
 	<td>Pembayaran</td>
-	<td><?=$array_penjualan['Pembayaran']?></td>
+	<td><?= 'Rp.'.number_format($array_penjualan['Pembayaran']);?></td>
 	</tr>
 	<tr>
 	<td>Kembalian</td>
